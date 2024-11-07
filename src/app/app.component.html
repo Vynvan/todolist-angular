@@ -1,3 +1,7 @@
-<main class="main">
-   <router-outlet></router-outlet>
-</main>
+<div class="App d-flex flex-column justify-content-start bg-light text-dark container-fluid">
+   <app-navigation class="mb-5 bg-body-tertiary sticky-top card shadow navbar navbar-expand-sm navbar-light"></app-navigation>
+   <main class="main">      
+      <router-outlet></router-outlet>
+   </main>
+   <app-footer class="mt-4 px-5 py-4 bg-white shadow sticky-bottom card"></app-footer>
+</div>
