@@ -1,7 +1,7 @@
+import { CommonModule } from '@angular/common';
 import { Component, Signal } from '@angular/core';
 import { Todo } from '../../services/model';
 import { TodosService } from '../../services/todos.service';
-import { CommonModule } from '@angular/common';
 
 @Component({
    selector: 'app-todolist',
@@ -11,13 +11,23 @@ import { CommonModule } from '@angular/common';
    styleUrl: './todolist.component.css',
 })
 export class TodolistComponent {
+
+   editing = false;
    items: Signal<Todo[]>;
 
-   constructor(private todos: TodosService) {
-      this.items = todos.get();
+
+   constructor(private todoservice: TodosService) {
+      this.items = todoservice.todos;
    }
 
-   addTodo() {}
+
+   addTodo(text: string) {
+      this.todoservice.create(text);
+   }
+
+   updateTodo(item: Todo) {
+      this.todoservice.update(item);
+   }
 
    trackById(index: number, item: Todo): number {
       return item.id;

@@ -5,6 +5,7 @@
  
  main {
    min-height: max-content;
+   flex-grow: 1;
  }
  
  nav.card {

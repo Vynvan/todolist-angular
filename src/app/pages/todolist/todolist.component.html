@@ -1,7 +1,7 @@
-<div className="container">
-   <div className="m-4 p-2 d-flex align-items-center justify-content-center rounded shadow todo">
-      <input type="text" id="todo-input" placeholder="Neue Aufgabe hinzufügen" />
-      <button className="mx-2 btn btn-primary rounded-circle" (onClick)="this.addTodo()" title="Hinzufügen">
+<div class="container">
+   <div class="m-4 p-2 d-flex align-items-center justify-content-center rounded shadow todo">
+      <input type="text" id="todo-input" placeholder="Neue Aufgabe hinzufügen" #todoInput />
+      <button class="mx-2 btn btn-primary rounded-circle" (click)="this.addTodo(todoInput.value)" title="Hinzufügen">
          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
             <path
                fillRule="evenodd"
@@ -10,9 +10,9 @@
          </svg>
       </button>
    </div>
-   <ul className="ps-0">
+   <ul class="ps-0">
       @for (item of this.items(); track item.id) {
-         <li className="m-4 p-2 list-unstyled rounded shadow todo">item.title</li>
+         <li class="m-4 p-2 list-unstyled rounded shadow todo" (click)="this.updateTodo(item)">{{ item.text }}</li>
       }
    </ul>
 </div>
